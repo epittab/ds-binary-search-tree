@@ -5,8 +5,8 @@ class Node {
 
 public:
     int Value;
-    Node* Left;
-    Node* Right;
+    Node *Left;
+    Node *Right;
 
     Node(int value) {
         Value = value;
@@ -18,7 +18,7 @@ public:
 class BST {
 
 public:
-    Node* root;
+    Node *root;
 
     BST() {
         root = NULL;
@@ -28,11 +28,22 @@ public:
         std::cout << root << std::endl;
 
         Node newNode(value);
-        if (root == NULL) {
+        if (!this -> root) {
             root = &newNode;
         }
         std::cout << "the root value is: " << root->Value << std::endl;
         std::cout << "the root address is: " << root << std::endl;
+        // handle less than root
+        if (value < root -> Value ) {
+
+            std::cout << "the value is less than root address is: " << std::endl;
+        }
+        else {
+
+            std::cout << "the value is greater than root address is: " << std::endl;
+
+        }
+        
         return *root;
 
     }
@@ -44,7 +55,8 @@ public:
 int main() {
     BST myBSTree;
 
-    Node myValue = myBSTree.insert(10);
+    myBSTree.insert(10);
+    myBSTree.insert(1);
 
     //std::cout << myValue << std::endl;
     return 0;
