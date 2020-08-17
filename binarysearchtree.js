@@ -107,6 +107,75 @@ class BST{
         traverse(currentNode);
         return visited;
     }
+   
+    dfsPostorder() {
+        // handle edge case
+        if (!this.root) return undefined;
+        
+        // define varible to store return values
+        let visited = [];
+
+        //set current node to root
+        let currentNode = this.root;
+        
+        // define recursive helper function
+        function traverse(node) {
+            
+            if (node.left) traverse(node.left)
+            if (node.right) traverse(node.right)
+            visited.push(node.value);
+
+        }
+      
+        traverse(currentNode);
+        return visited;
+    }
+   
+    dfsInorder() {
+        // handle edge case
+        if (!this.root) return undefined;
+        
+        // define varible to store return values
+        let visited = [];
+
+        //set current node to root
+        let currentNode = this.root;
+        
+        // define recursive helper function
+        function traverse(node) {
+            
+            if (node.left) traverse(node.left)
+            visited.push(node.value);
+            if (node.right) traverse(node.right)
+
+        }
+      
+        traverse(currentNode);
+        return visited;
+    }
+
+    dfsOutorder() {
+        // handle edge case
+        if (!this.root) return undefined;
+        
+        // define varible to store return values
+        let visited = [];
+
+        //set current node to root
+        let currentNode = this.root;
+        
+        // define recursive helper function
+        function traverse(node) {
+            
+            if (node.right) traverse(node.right)
+            visited.push(node.value);
+            if (node.left) traverse(node.left)
+
+        }
+      
+        traverse(currentNode);
+        return visited;
+    }
 
 
     //private
